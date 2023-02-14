@@ -140,7 +140,7 @@ T xgemm_test(T machine_eps){
     T beta  = (T)0.0;
 
     // Size (in bytes) of individual arrays
-    int buffer_size = N * N * sizeof(T);
+    long long buffer_size = N * N * sizeof(T);
 
     // Host matrix buffers
     T *A   = (T*)malloc(buffer_size);
@@ -161,17 +161,17 @@ T xgemm_test(T machine_eps){
             int index = i * N + j;
 
             if(j % 2 == 0){
-                A[index] = sin(j);
+                A[index] = sin((double)j);
             }
             else{
-                A[index] = cos(j-1);
+                A[index] = cos((double)(j-1));
             }
 
             if(i % 2 == 0){
-                B[index] = sin(i);
+                B[index] = sin((double)i);
             }
             else{
-                B[index] = cos(i-1);
+                B[index] = cos((double)(i-1));
             }
 
             C[index] = 0.0;
