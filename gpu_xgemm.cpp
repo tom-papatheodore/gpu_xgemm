@@ -158,7 +158,6 @@ T xgemm_test(T machine_eps){
     {
         for(int j=0; j<N; j++)
         {
-
             int index = i * N + j;
 
             if(j % 2 == 0){
